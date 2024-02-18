@@ -226,46 +226,49 @@ jobs:
 
     - name: Organize files
       id: organize
-      if: steps.compile.outputs.status == 'success' && !cancelled()
+      if: steps.compile.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd $GITHUB_WORKSPACE/openwrt/bin/packages
         tar -zcvf Packages.tar.gz ./*
         cp Packages.tar.gz $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
         cd $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
         rm -rf packages
-        echo "status=success" >> ${GITHUB_OUTPUT}
+        echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+        echo "::set-output name=status::success"
+        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
 
     - name: Calculate MD5
       run: |
-        cp $GITHUB_WORKSPACE/openwrt/bin/targets/*/*/Packages.tar.gz ${{ env.PACKAGED_OUTPUTPATH }}
-        cd ${{ env.PACKAGED_OUTPUTPATH }} && rm -rf sha256sums
+        cd ${{ env.FIRMWARE }} && rm -rf sha256sums
         MD5=$(md5sum * | sed ':a;N;$!ba;s/\n/<br>/g')
         echo "MD5=$MD5" >> $GITHUB_ENV
 
-    - name: Upload artifact to Actions
-      uses: kittaakos/upload-artifact-as-is@master
-      if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+    - name: Upload firmware directory
+      uses: actions/upload-artifact@main
+      if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        path: ${{ env.PACKAGED_OUTPUTPATH }}/
+        name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        path: ${{ env.FIRMWARE }}
 
     - name: Upload OpenWrt Firmware to Release
       id: release
       uses: ncipollo/release-action@main
-      if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
+      if: steps.organize.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        name: R${{ env.DATE }} for Mi-R3G
+        name: R${{ steps.organize.outputs.release_tag }} for MI-R3G
         allowUpdates: true
         removeArtifacts: true
-        tag: Mi-R3G
+        tag: ${{ steps.organize.outputs.release_tag }}
         commit: main
         token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        artifacts: ${{ env.FIRMWARE }}/*
         body: |
           - 默认IP：192.168.1.1
           - 默认密码：password
           - 当前使用版本:【编译前的最后一次[➦主源码](${{ env.REPO_URL }})更新记录】
-          ${{ env.useVersionInfo }}
           - 下载后请仔细校验MD5，如不正确请重新下载
+          ${{ env.useVersionInfo }}
+          
           `md5sum`
           > ${{ env.MD5 }}
 
