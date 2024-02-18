@@ -132,7 +132,7 @@ jobs:
         # 
 
 
-        # 编译ARM固件:
+        # 编译R3G固件:
         cat >> .config <<EOF
         CONFIG_TARGET_ramips=y
         CONFIG_TARGET_ramips_mt7621=y
@@ -164,12 +164,6 @@ jobs:
         CONFIG_PACKAGE_luci-app-webadmin=y
         CONFIG_PACKAGE_luci-app-upnp=y
         CONFIG_PACKAGE_luci-app-vlmcsd=y
-        EOF
-
-        # LuCI主题:
-        cat >> .config <<EOF
-        CONFIG_PACKAGE_luci-theme-argon=y
-        CONFIG_PACKAGE_luci-app-argon-config=y
         EOF
 
         # 可选软件包
