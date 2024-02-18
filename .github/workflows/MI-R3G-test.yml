@@ -26,7 +26,6 @@ env:
   REPO_BRANCH: openwrt-18.06-k5.4
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
-  DIY_SH: immo_diy.sh
   TZ: Asia/Shanghai
 
 jobs:
