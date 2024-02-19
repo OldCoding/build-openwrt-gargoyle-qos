@@ -16,6 +16,8 @@ svn_export() {
 rm -rf ./feeds/luci/applications/luci-app-openclash
 rm -rf ./feeds/luci/applications/luci-app-passwall
 rm -rf ./feeds/luci/applications/luci-app-ssr-plus
+rm -rf ./feeds/luci/applications/luci-app-smartdns
+rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/net/dns2tcp
 rm -rf ./feeds/packages/net/hysteria
 rm -rf ./feeds/packages/net/ipt2socks
@@ -50,6 +52,8 @@ git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
 git clone --depth 1 https://github.com/chenmozhijin/luci-app-adguardhome package/luci-app-adguardhome
 git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
+git clone --depth 1 -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
+git clone --depth 1 https://github.com/pymumu/openwrt-smartdns package/smartdns
 git clone --depth 1 https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
 svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/xiaorouji/openwrt-passwall"
