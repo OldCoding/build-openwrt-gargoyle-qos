@@ -27,6 +27,7 @@ env:
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
+  PRODUCT_NAME: ARMv8
   TZ: Asia/Shanghai
 
 
