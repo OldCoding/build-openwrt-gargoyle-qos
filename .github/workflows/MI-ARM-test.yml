@@ -93,7 +93,8 @@ jobs:
 
     - name: Update package
       run: |
-        git clone -b openwrt-luci18 https://github.com/ilxp/gargoyle-qos-openwrt.git package/gargoyle-qos-openwrt
+        git clone --depth 1 -b openwrt-luci18 https://github.com/ilxp/gargoyle-qos-openwrt.git package/gargoyle-qos-openwrt
+        git clone --depth 1 https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
 
     - name: Generate configuration file
       run: |
@@ -199,13 +200,14 @@ jobs:
         # LuCI插件选择:
         cat >> .config <<EOF
         CONFIG_PACKAGE_luci-app-autoreboot=y
+        CONFIG_PACKAGE_luci-app-amlogic=y
         CONFIG_PACKAGE_luci-app-diskman=y
         CONFIG_PACKAGE_luci-app-ddns=y
         CONFIG_PACKAGE_luci-app-firewall=y
         CONFIG_PACKAGE_luci-app-ssr-plus=y
         CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
         CONFIG_PACKAGE_luci-app-smartdns=y
-        CONFIG_PACKAGE_luci-app-samba4=y
+        CONFIG_PACKAGE_luci-app-samba=y
         CONFIG_PACKAGE_luci-app-qos-gargoyle=y
         CONFIG_PACKAGE_luci-app-hd-idle=y
         CONFIG_PACKAGE_luci-app-ttyd=y
