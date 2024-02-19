@@ -28,6 +28,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   PRODUCT_NAME: ARMv8
+  DIY_SH: arm_im_diy.sh
   TZ: Asia/Shanghai
 
 
@@ -91,10 +92,11 @@ jobs:
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
 
-    - name: Update package
+    - name: File Diy Patch
       run: |
-        git clone --depth 1 -b openwrt-luci18 https://github.com/ilxp/gargoyle-qos-openwrt.git package/gargoyle-qos-openwrt
-        git clone --depth 1 https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
+        chmod +x $DIY_SH
+        cd openwrt
+        $GITHUB_WORKSPACE/$DIY_SH
 
     - name: Generate configuration file
       run: |
@@ -201,6 +203,8 @@ jobs:
         cat >> .config <<EOF
         CONFIG_PACKAGE_luci-app-autoreboot=y
         CONFIG_PACKAGE_luci-app-amlogic=y
+        CONFIG_PACKAGE_luci-app-alist=y
+        CONFIG_PACKAGE_luci-app-pushbot=y
         CONFIG_PACKAGE_luci-app-diskman=y
         CONFIG_PACKAGE_luci-app-ddns=y
         CONFIG_PACKAGE_luci-app-firewall=y
@@ -216,6 +220,17 @@ jobs:
         CONFIG_PACKAGE_luci-app-webadmin=y
         CONFIG_PACKAGE_luci-app-upnp=y
         CONFIG_PACKAGE_luci-app-vlmcsd=y
+        CONFIG_PACKAGE_luci-app-passwall=y
+        CONFIG_PACKAGE_luci-app-passwall2=y
+        CONFIG_PACKAGE_luci-app-adguardhome=y
+        CONFIG_PACKAGE_luci-app-qbittorrent=y
+        CONFIG_PACKAGE_luci-app-aria2=y
+        CONFIG_PACKAGE_luci-app-transmission=y
+        CONFIG_PACKAGE_luci-app-filebrowser=y
+        CONFIG_PACKAGE_luci-app-kodexplorer=y
+        CONFIG_PACKAGE_luci-app-openclash=y
+        CONFIG_PACKAGE_luci-app-xunlei=y
+        CONFIG_PACKAGE_luci-app-zerotier=y
         EOF
 
         # LuCI主题:
