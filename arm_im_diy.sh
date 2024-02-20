@@ -13,49 +13,22 @@ svn_export() {
 	cp -af . "$TGT_DIR/" && cd "$ORI_DIR"
 	rm -rf "$TMP_DIR"
 }
-rm -rf ./feeds/luci/applications/luci-app-openclash
-rm -rf ./feeds/luci/applications/luci-app-passwall
-rm -rf ./feeds/luci/applications/luci-app-ssr-plus
+
+find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
+find ./ | grep Makefile | grep mosdns | xargs rm -f
+
 rm -rf ./feeds/luci/applications/luci-app-smartdns
 rm -rf ./feeds/packages/net/smartdns
-rm -rf ./feeds/packages/net/dns2tcp
-rm -rf ./feeds/packages/net/hysteria
-rm -rf ./feeds/packages/net/ipt2socks
-rm -rf ./feeds/packages/lang/lua-neturl
-rm -rf ./feeds/packages/net/microsocks
-rm -rf ./feeds/packages/net/mosdns
-rm -rf ./feeds/packages/net/naiveproxy
-rm -rf ./feeds/packages/net/redsocks2
-rm -rf ./feeds/packages/net/shadowsocks-rust
-rm -rf ./feeds/packages/net/shadowsocksr-libev
-rm -rf ./feeds/packages/net/simple-obfs
-rm -rf ./feeds/packages/net/tcping
-rm -rf ./feeds/packages/net/trojan-go
-rm -rf ./feeds/packages/net/trojan
-rm -rf ./feeds/packages/net/trojan-plus
-rm -rf ./feeds/packages/net/v2ray-core
-rm -rf ./feeds/packages/net/v2ray-plugin
-rm -rf ./feeds/packages/net/v2raya
-rm -rf ./feeds/packages/net/xray-core
-rm -rf ./feeds/packages/net/xray-plugin
-rm -rf ./feeds/packages/net/pdnsd-alt
-rm -rf ./feeds/packages/net/trojan-go
-rm -rf ./feeds/packages/net/trojan-plus
-rm -rf ./feeds/packages/net/v2ray-geodata
 rm -rf ./feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
 
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 git clone --depth 1 https://github.com/sbwml/luci-app-xunlei  package/luci-app-xunlei
 git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
-git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
 git clone --depth 1 https://github.com/chenmozhijin/luci-app-adguardhome package/luci-app-adguardhome
 git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
-#git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 git clone --depth 1 -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
 git clone --depth 1 https://github.com/pymumu/openwrt-smartdns package/smartdns
-git clone --depth 1 https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
-#svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
-#svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/xiaorouji/openwrt-passwall"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
@@ -63,7 +36,7 @@ svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mos
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
 svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
-svn_export "master" "lang/rust" "feeds/packages/lang/rust" "https://github.com/coolsnowwolf/packages"
+
 cd package
 # 个性化设置
 sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
