@@ -39,6 +39,15 @@ svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdn
 svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
 svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
 
+# 调整菜单位置
+sed -i "s|services|nas|g" feeds/luci/applications/luci-app-filebrowser/root/usr/share/luci/menu.d/luci-app-filebrowser.json
+sed -i "s|services|nas|g" feeds/luci/applications/luci-app-transmission/root/usr/share/luci/menu.d/luci-app-transmission.json
+sed -i "s|services|nas|g" feeds/luci/applications/luci-app-qbittorrent/root/usr/share/luci/menu.d/luci-app-qbittorrent.json
+# 微信推送&全能推送
+sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushbot
+sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-wechatpush/root/usr/share/wechatpush/wechatpush
+# DNS劫持
+sed -i '/dns_redirect/d' package/network/services/dnsmasq/files/dhcp.conf
 cd package
 # 个性化设置
 sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
