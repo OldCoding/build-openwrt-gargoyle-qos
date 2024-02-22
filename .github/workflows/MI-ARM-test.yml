@@ -203,6 +203,7 @@ jobs:
         cat >> .config <<EOF
         CONFIG_PACKAGE_luci-app-autoreboot=y
         CONFIG_PACKAGE_luci-app-amlogic=y
+        CONFIG_PACKAGE_luci-app-argon-config=y
         CONFIG_PACKAGE_luci-app-alist=y
         CONFIG_PACKAGE_luci-app-pushbot=y
         CONFIG_PACKAGE_luci-app-diskman=y
@@ -225,6 +226,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-usb-printer=y
         CONFIG_PACKAGE_luci-app-vlmcsd=y
         CONFIG_PACKAGE_luci-app-wechatpush=y
+        CONFIG_PACKAGE_luci-app-watchcat=y
         CONFIG_PACKAGE_luci-app-netspeedtest=y
         CONFIG_PACKAGE_luci-app-passwall=y
         CONFIG_PACKAGE_luci-app-passwall2=y
@@ -236,13 +238,13 @@ jobs:
         CONFIG_PACKAGE_luci-app-filebrowser=y
         CONFIG_PACKAGE_luci-app-kodexplorer=y
         CONFIG_PACKAGE_luci-app-openclash=y
-        CONFIG_PACKAGE_luci-app-xunlei=y
+        CONFIG_PACKAGE_luci-app-thunder=y
         CONFIG_PACKAGE_luci-app-zerotier=y
         EOF
 
         # LuCI主题:
         cat >> .config <<EOF
-        CONFIG_PACKAGE_luci-theme-argonv3=y
+        CONFIG_PACKAGE_luci-theme-argon=y
         EOF
 
         # 必备软件包:
@@ -381,7 +383,7 @@ jobs:
       uses: ophub/flippy-openwrt-actions@main
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
-        PACKAGE_SOC: s905d_s905x3
+        PACKAGE_SOC: all
         WHOAMI: Wing
         KERNEL_AUTO_LATEST: true
         OPENWRT_VER: ${{ env.VER }}
