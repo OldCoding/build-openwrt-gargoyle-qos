@@ -20,7 +20,7 @@ find ./ | grep Makefile | grep mosdns | xargs rm -f
 rm -rf ./feeds/luci/applications/luci-app-passwall
 rm -rf ./feeds/luci/applications/luci-app-openclash
 rm -rf ./feeds/luci/applications/luci-app-smartdns
-#rm -rf ./feeds/luci/applications/luci-app-alist
+rm -rf ./feeds/luci/applications/luci-app-alist
 #rm -rf ./feeds/luci/applications/luci-app-argon-config
 #rm -rf ./feeds/luci/applications/luci-app-dockerman
 #rm -rf ./feeds/luci/themes/luci-theme-argon
