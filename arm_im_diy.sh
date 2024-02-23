@@ -20,11 +20,11 @@ find ./ | grep Makefile | grep mosdns | xargs rm -f
 rm -rf ./feeds/luci/applications/luci-app-passwall
 rm -rf ./feeds/luci/applications/luci-app-openclash
 rm -rf ./feeds/luci/applications/luci-app-smartdns
-rm -rf ./feeds/luci/applications/luci-app-alist
+#rm -rf ./feeds/luci/applications/luci-app-alist
 #rm -rf ./feeds/luci/applications/luci-app-argon-config
 #rm -rf ./feeds/luci/applications/luci-app-dockerman
 #rm -rf ./feeds/luci/themes/luci-theme-argon
-rm -rf ./feeds/packages/net/alist
+#rm -rf ./feeds/packages/net/alist
 rm -rf ./feeds/packages/net/smartdns
 #rm -rf ./feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
@@ -32,7 +32,7 @@ rm -rf ./feeds/packages/net/smartdns
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth 1 https://github.com/chenmozhijin/luci-app-adguardhome package/luci-app-adguardhome
-git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
+#git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
 git clone --depth 1 -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
 git clone --depth 1 https://github.com/pymumu/openwrt-smartdns package/smartdns
 git clone -b openwrt-2102 https://github.com/ilxp/gargoyle-qos-openwrt package/gargoyle-qos-openwrt
