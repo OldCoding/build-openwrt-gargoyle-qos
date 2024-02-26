@@ -20,6 +20,7 @@ find ./ | grep Makefile | grep mosdns | xargs rm -f
 rm -rf ./feeds/luci/applications/luci-app-passwall
 rm -rf ./feeds/luci/applications/luci-app-openclash
 rm -rf ./feeds/luci/applications/luci-app-smartdns
+rm -rf ./feeds/luci/applications/luci-app-dockerman
 rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
@@ -33,6 +34,7 @@ git clone --depth 1 -b lede https://github.com/pymumu/luci-app-smartdns package/
 git clone --depth 1 https://github.com/pymumu/openwrt-smartdns package/smartdns
 git clone -b openwrt-2102 https://github.com/ilxp/gargoyle-qos-openwrt.git package/gargoyle-qos-openwrt
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
+svn_export "master" "applications/luci-app-dockerman" "package/luci-app-dockerman" "https://github.com/lisaac/luci-app-dockerman"
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
 svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/xiaorouji/openwrt-passwall"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
