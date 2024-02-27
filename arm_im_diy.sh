@@ -66,7 +66,7 @@ sed -i "s|services|vpn|g" feeds/luci/applications/luci-app-pppoe-server/luasrc/c
 sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushbot
 sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-wechatpush/root/usr/share/wechatpush/wechatpush
 # 石像鬼755权限
-chmod 755 package/gargoyle-qos-openwrtqos-gargoyle/files/qos_gargoyle.init
+chmod 755 package/gargoyle-qos-openwrtqos-gargoyle/files/*
 # DNS劫持
 sed -i '/dns_redirect/d' package/network/services/dnsmasq/files/dhcp.conf
 cd package
