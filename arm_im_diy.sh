@@ -49,7 +49,6 @@ svn_export "master" "applications/luci-app-watchcat" "feeds/luci/applications/lu
 svn_export "master" "net/vsftpd" "feeds/packages/net/vsftpd" "https://github.com/immortalwrt/packages"
 svn_export "master" "multimedia/minidlna" "feeds/packages/multimedia/minidlna" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/watchcat" "feeds/packages/utils/watchcat" "https://github.com/immortalwrt/packages"
-
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
@@ -66,6 +65,8 @@ sed -i "s|services|vpn|g" feeds/luci/applications/luci-app-pppoe-server/luasrc/c
 # 微信推送&全能推送
 sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushbot
 sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-wechatpush/root/usr/share/wechatpush/wechatpush
+# 石像鬼755权限
+chmod 755 package/gargoyle-qos-openwrtqos-gargoyle/files/qos_gargoyle.init
 # DNS劫持
 sed -i '/dns_redirect/d' package/network/services/dnsmasq/files/dhcp.conf
 cd package
