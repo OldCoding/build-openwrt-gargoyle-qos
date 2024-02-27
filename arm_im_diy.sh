@@ -21,6 +21,9 @@ rm -rf ./feeds/luci/applications/luci-app-passwall
 rm -rf ./feeds/luci/applications/luci-app-openclash
 rm -rf ./feeds/luci/applications/luci-app-smartdns
 rm -rf ./feeds/luci/applications/luci-app-dockerman
+rm -rf ./feeds/luci/applications/luci-app-vsftpd
+rm -rf ./feeds/luci/applications/luci-app-minidlna
+rm -rf ./feeds/luci/applications/luci-app-watchcat
 rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
@@ -38,6 +41,10 @@ svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://git
 svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/xiaorouji/openwrt-passwall"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
+svn_export "master" "applications/luci-app-vsftpd" "feeds/luci/applications/luci-app-vsftpd" "https://github.com/immortalwrt/luci"
+svn_export "master" "applications/luci-app-minidlna" "feeds/luci/applications/luci-app-minidlna" "https://github.com/immortalwrt/luci"
+svn_export "master" "applications/luci-app-watchcat" "feeds/luci/applications/luci-app-minidlna" "https://github.com/immortalwrt/luci"
+
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
@@ -47,7 +54,10 @@ svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/net
 # 调整菜单位置
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-filebrowser/root/usr/share/luci/menu.d/luci-app-filebrowser.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-transmission/root/usr/share/luci/menu.d/luci-app-transmission.json
+sed -i "s|services|nas|g" feeds/luci/applications/luci-app-alist/root/usr/share/luci/menu.d/luci-app-alist.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-qbittorrent/root/usr/share/luci/menu.d/luci-app-qbittorrent.json
+sed -i "s|services|vpn|g" feeds/luci/applications/luci-app-squid/root/usr/share/luci/menu.d/luci-app-squid.json
+sed -i "s|services|vpn|g" feeds/luci/applications/luci-app-pppoe-server/luasrc/controller/pppoe-server.lua
 # 微信推送&全能推送
 sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushbot
 sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-wechatpush/root/usr/share/wechatpush/wechatpush
