@@ -25,6 +25,8 @@ rm -rf ./feeds/luci/applications/luci-app-vsftpd
 rm -rf ./feeds/luci/applications/luci-app-minidlna
 rm -rf ./feeds/luci/applications/luci-app-watchcat
 rm -rf ./feeds/packages/net/smartdns
+rm -rf ./feeds/packages/multimedia/minidlna
+rm -rf ./feeds/packages/net/vsftpd
 rm -rf ./feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
 
@@ -43,7 +45,10 @@ svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 svn_export "master" "applications/luci-app-vsftpd" "feeds/luci/applications/luci-app-vsftpd" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-minidlna" "feeds/luci/applications/luci-app-minidlna" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-watchcat" "feeds/luci/applications/luci-app-minidlna" "https://github.com/immortalwrt/luci"
+svn_export "master" "applications/luci-app-watchcat" "feeds/luci/applications/luci-app-watchcat" "https://github.com/immortalwrt/luci"
+svn_export "master" "net/vsftpd" "feeds/packages/net/vsftpd" "https://github.com/immortalwrt/packages"
+svn_export "master" "multimedia/minidlna" "feeds/packages/multimedia/minidlna" "https://github.com/immortalwrt/packages"
+svn_export "master" "utils/watchcat" "feeds/packages/utils/watchcat" "https://github.com/immortalwrt/packages"
 
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
