@@ -48,7 +48,7 @@ rm -rf ./feeds/packages/net/trojan-go
 rm -rf ./feeds/packages/net/trojan-plus
 rm -rf ./feeds/packages/net/v2ray-geodata
 rm -rf ./feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 git clone --depth 1 https://github.com/sbwml/luci-app-xunlei  package/luci-app-xunlei
