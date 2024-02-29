@@ -1,5 +1,3 @@
-rm -rf ./feeds/packages/net/chinadns-ng
-rm -rf ./feeds/packages/net/dns2socks
 #!/bin/bash
 svn_export() {
 	# 参数1是分支名, 参数2是子目录, 参数3是目标目录, 参数4仓库地址
@@ -14,9 +12,6 @@ svn_export() {
 	rm -rf "$TMP_DIR"
 }
 
-find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
-find ./ | grep Makefile | grep mosdns | xargs rm -f
-
 rm -rf ./feeds/luci/applications/luci-app-passwall
 rm -rf ./feeds/luci/applications/luci-app-openclash
 rm -rf ./feeds/luci/applications/luci-app-smartdns
@@ -27,6 +22,31 @@ rm -rf ./feeds/luci/applications/luci-app-watchcat
 rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/multimedia/minidlna
 rm -rf ./feeds/packages/net/vsftpd
+rm -rf ./feeds/luci/applications/luci-app-ssr-plus
+rm -rf ./feeds/packages/net/dns2tcp
+rm -rf ./feeds/packages/net/hysteria
+rm -rf ./feeds/packages/net/ipt2socks
+rm -rf ./feeds/packages/lang/lua-neturl
+rm -rf ./feeds/packages/net/microsocks
+rm -rf ./feeds/packages/net/mosdns
+rm -rf ./feeds/packages/net/naiveproxy
+rm -rf ./feeds/packages/net/redsocks2
+rm -rf ./feeds/packages/net/shadowsocks-rust
+rm -rf ./feeds/packages/net/shadowsocksr-libev
+rm -rf ./feeds/packages/net/simple-obfs
+rm -rf ./feeds/packages/net/tcping
+rm -rf ./feeds/packages/net/trojan-go
+rm -rf ./feeds/packages/net/trojan
+rm -rf ./feeds/packages/net/trojan-plus
+rm -rf ./feeds/packages/net/v2ray-core
+rm -rf ./feeds/packages/net/v2ray-plugin
+rm -rf ./feeds/packages/net/v2raya
+rm -rf ./feeds/packages/net/xray-core
+rm -rf ./feeds/packages/net/xray-plugin
+rm -rf ./feeds/packages/net/pdnsd-alt
+rm -rf ./feeds/packages/net/trojan-go
+rm -rf ./feeds/packages/net/trojan-plus
+rm -rf ./feeds/packages/net/v2ray-geodata
 rm -rf ./feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
 
