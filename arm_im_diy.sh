@@ -18,8 +18,6 @@ rm -rf ./feeds/luci/applications/luci-app-smartdns
 rm -rf ./feeds/luci/applications/luci-app-dockerman
 rm -rf ./feeds/luci/applications/luci-app-ssr-plus
 rm -rf ./feeds/packages/net/smartdns
-rm -rf ./feeds/packages/multimedia/minidlna
-rm -rf ./feeds/packages/net/vsftpd
 rm -rf ./feeds/packages/net/dns2tcp
 rm -rf ./feeds/packages/net/hysteria
 rm -rf ./feeds/packages/net/ipt2socks
