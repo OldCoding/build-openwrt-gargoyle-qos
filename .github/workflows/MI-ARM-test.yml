@@ -140,12 +140,12 @@ jobs:
 
         # 编译ARM固件:
         cat >> .config <<EOF
-        CONFIG_TARGET_armvirt=y
-        CONFIG_TARGET_armvirt_64=y
-        CONFIG_TARGET_armvirt_64_Default=y
-        CONFIG_TARGET_ARCH_PACKAGES="aarch64_cortex-a53"
-        CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mcpu=cortex-a53"
-        CONFIG_CPU_TYPE="cortex-a53"
+        CONFIG_TARGET_armsr=y
+        CONFIG_TARGET_armsr_armv8=y
+        CONFIG_TARGET_armsr_armv8_DEVICE_generic=y
+        CONFIG_TARGET_ARCH_PACKAGES="aarch64_generic"
+        CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mcpu=generic"
+        CONFIG_CPU_TYPE="generic"
         EOF
         
         # USB2.0支持:
@@ -168,6 +168,12 @@ jobs:
         CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
         CONFIG_PACKAGE_ip6tables-extra=y
         CONFIG_PACKAGE_ipv6helper=y
+        EOF
+
+        # 防火墙:
+        cat >> .config <<EOF
+        CONFIG_PACKAGE_firewall=y
+        # CONFIG_PACKAGE_firewall4 is not set
         EOF
 
         # 镜像设置
@@ -212,7 +218,6 @@ jobs:
         CONFIG_PACKAGE_luci-app-ddns=y
         CONFIG_PACKAGE_luci-app-fileassistant=y
         CONFIG_PACKAGE_luci-app-firewall=y
-        # CONFIG_PACKAGE_firewall4 is not set
         CONFIG_PACKAGE_luci-app-filebrowser=y
         CONFIG_PACKAGE_luci-app-hd-idle=y
         CONFIG_PACKAGE_luci-app-iptvhelper=y
