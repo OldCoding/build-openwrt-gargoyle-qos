@@ -16,9 +16,6 @@ rm -rf ./feeds/luci/applications/luci-app-passwall
 rm -rf ./feeds/luci/applications/luci-app-openclash
 rm -rf ./feeds/luci/applications/luci-app-smartdns
 rm -rf ./feeds/luci/applications/luci-app-dockerman
-rm -rf ./feeds/luci/applications/luci-app-vsftpd
-rm -rf ./feeds/luci/applications/luci-app-minidlna
-rm -rf ./feeds/luci/applications/luci-app-watchcat
 rm -rf ./feeds/luci/applications/luci-app-ssr-plus
 rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/multimedia/minidlna
@@ -56,20 +53,13 @@ git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth 1 https://github.com/chenmozhijin/luci-app-adguardhome package/luci-app-adguardhome
 git clone --depth 1 -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
 git clone --depth 1 https://github.com/pymumu/openwrt-smartdns package/smartdns
-git clone -b openwrt-2102 https://github.com/ilxp/gargoyle-qos-openwrt.git package/gargoyle-qos-openwrt
+git clone -b openwrt-2203 https://github.com/ilxp/gargoyle-qos-openwrt.git package/gargoyle-qos-openwrt
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 svn_export "master" "applications/luci-app-dockerman" "package/luci-app-dockerman" "https://github.com/lisaac/luci-app-dockerman"
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
 svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/xiaorouji/openwrt-passwall"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
-svn_export "master" "applications/luci-app-vsftpd" "feeds/luci/applications/luci-app-vsftpd" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-minidlna" "feeds/luci/applications/luci-app-minidlna" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-watchcat" "feeds/luci/applications/luci-app-watchcat" "https://github.com/immortalwrt/luci"
-svn_export "master" "net/vsftpd" "feeds/packages/net/vsftpd" "https://github.com/immortalwrt/packages"
-svn_export "master" "multimedia/minidlna" "feeds/packages/multimedia/minidlna" "https://github.com/immortalwrt/packages"
-svn_export "master" "utils/watchcat" "feeds/packages/utils/watchcat" "https://github.com/immortalwrt/packages"
-svn_export "master" "lang/rust" "feeds/packages/lang/rust" "https://github.com/immortalwrt/packages"
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
