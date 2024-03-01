@@ -69,6 +69,7 @@ svn_export "master" "applications/luci-app-watchcat" "feeds/luci/applications/lu
 svn_export "master" "net/vsftpd" "feeds/packages/net/vsftpd" "https://github.com/immortalwrt/packages"
 svn_export "master" "multimedia/minidlna" "feeds/packages/multimedia/minidlna" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/watchcat" "feeds/packages/utils/watchcat" "https://github.com/immortalwrt/packages"
+svn_export "master" "lang/rust" "feeds/packages/lang/rust" "https://github.com/immortalwrt/packages
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
