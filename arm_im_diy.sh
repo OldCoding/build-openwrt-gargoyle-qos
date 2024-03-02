@@ -51,7 +51,7 @@ git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-ap
 git clone --depth 1 https://github.com/sbwml/luci-app-xunlei  package/luci-app-xunlei
 git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth 1 https://github.com/chenmozhijin/luci-app-adguardhome package/luci-app-adguardhome
-git clone --depth 1 https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
+git clone --depth 1 https://github.com/pymumu/luci-app-smartdns feeds/luci/applications/luci-app-smartdns
 git clone --depth 1 https://github.com/pymumu/openwrt-smartdns package/smartdns
 git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
 git clone -b openwrt-2203 https://github.com/ilxp/gargoyle-qos-openwrt.git package/gargoyle-qos-openwrt
