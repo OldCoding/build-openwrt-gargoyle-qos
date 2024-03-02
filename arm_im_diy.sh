@@ -83,8 +83,8 @@ chmod 755 package/gargoyle-qos-openwrtqos-gargoyle/files/*
 sed -i '/dns_redirect/d' package/network/services/dnsmasq/files/dhcp.conf
 cd package
 # 个性化设置
-sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
-sed -i "s|ARMv8|ARMv8-im|g" luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/build-openwrt-gargoyle-qos" luci-app-amlogic/root/etc/config/amlogic
+#sed -i "s|ARMv8|ARMv8-im|g" luci-app-amlogic/root/etc/config/amlogic
 rm -rf luci-app-netspeedtest/po/zh_Hans
 # 汉化
 curl -sfL -o ./convert_translation.sh https://github.com/kenzok8/small-package/raw/main/.github/diy/convert_translation.sh
