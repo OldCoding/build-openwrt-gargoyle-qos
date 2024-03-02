@@ -14,12 +14,10 @@ svn_export() {
 
 rm -rf ./feeds/luci/applications/luci-app-passwall
 rm -rf ./feeds/luci/applications/luci-app-openclash
-rm -rf ./feeds/luci/applications/luci-app-smartdns
 rm -rf ./feeds/luci/applications/luci-app-dockerman
 rm -rf ./feeds/luci/applications/luci-app-ssr-plus
 rm -rf ./feeds/luci/applications/luci-app-alist
 rm -rf ./feeds/packages/net/alist
-rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/net/dns2tcp
 rm -rf ./feeds/packages/net/hysteria
 rm -rf ./feeds/packages/net/ipt2socks
@@ -51,8 +49,6 @@ git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-ap
 git clone --depth 1 https://github.com/sbwml/luci-app-xunlei  package/luci-app-xunlei
 git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth 1 https://github.com/chenmozhijin/luci-app-adguardhome package/luci-app-adguardhome
-git clone --depth 1 https://github.com/pymumu/luci-app-smartdns feeds/luci/applications/luci-app-smartdns
-git clone --depth 1 https://github.com/pymumu/openwrt-smartdns feeds/packages/net/smartdns
 git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
 git clone -b openwrt-2203 https://github.com/ilxp/gargoyle-qos-openwrt.git package/gargoyle-qos-openwrt
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
